@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /quickstart
+      link: /starter/quickstart
     - theme: alt
       text: NPM
       link: https://www.npmjs.com/package/cocotais-bot
