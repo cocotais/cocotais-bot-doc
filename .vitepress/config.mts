@@ -29,6 +29,24 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/cocotais/cocotais-bot' }
-    ]
+    ],
+
+    footer: {
+      copyright: '© Cocotais 2024',
+    },
+
+    outline: {
+      level: 2,
+      label: '大纲',
+    },
+    docFooter: {
+      prev: '上一章',
+      next: '下一章',
+    },
+    darkModeSwitchLabel: '主题',
+    lightModeSwitchTitle: '切换到亮色主题',
+    darkModeSwitchTitle: '切换到深色主题',
+    sidebarMenuLabel: '目录',
+    returnToTopLabel: '回到顶部',
   }
 })

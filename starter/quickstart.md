@@ -2,6 +2,13 @@
 
 欢迎你使用 Cocotais Bot！这篇文章可以帮助你快速部署一个实例到你的设备中。
 
+## 准备
+
+<!-- TODO: 记得改准备介绍的node版本 -->
+
+- [Node.js](https://nodejs.org/) 18 及以上版本。
+- 通过命令行界面 (CLI) 访问 Cocotais Bot 的终端。
+
 ## 下载
 
 Cocotais Bot 发布在 npm 上，推荐使用 npm 下载并部署。
@@ -26,7 +33,7 @@ npx cocotais-bot
 
 如果一切正常，你应该看到以下输出：
 
-```text
+```txt
 Cocotais Bot 守护进程帮助
 版本：1.x.x
 使用方法：
@@ -39,7 +46,7 @@ Cocotais Bot 守护进程帮助
 
 ::: tip
 如果你有需要，可以使用 `npm install cocotais-bot -g`（cnpm：`cnpm install cocotais-bot -g`）
-将Cocotais Bot安装到全局。但我们仍推荐为每个实例单独创建一个目录。
+将 Cocotais Bot 安装到全局。但我们仍推荐为每个实例单独创建一个目录。
 :::
 
 ## 创建配置文件
@@ -71,15 +78,14 @@ npx cocotais-bot start
 }
 ```
 
+| 名称    | 类型            | 必填 |
+| ------- | --------------- | ---- |
+| appID   | string          | √    |
+| token   | string          | √    |
+| intents | Array\<string\> | √    |
 
-| 名称          |      类型        |  必填  |
-| ------------- | --------------- | ------ |
-| appID         | string          | √      |
-| token         | string          |   √    |
-| intents       | Array\<string\> |    √   |
-
-appID 与 token 需要你前往[QQ开放平台](https://q.qq.com/qqbot/#/developer/developer-setting)获取；
-intents 请参照[这里](https://bot.q.qq.com/wiki/develop/api-v2/dev-prepare/interface-framework/event-emit.html#%E4%BA%8B%E4%BB%B6%E8%AE%A2%E9%98%85intents)对照填写。
+appID 与 token 需要你前往 [QQ 开放平台](https://q.qq.com/qqbot/#/developer/developer-setting) 获取；
+intents 请参照 [这里](https://bot.q.qq.com/wiki/develop/api-v2/dev-prepare/interface-framework/event-emit.html#%E4%BA%8B%E4%BB%B6%E8%AE%A2%E9%98%85intents) 对照填写。
 
 这是一个填写好的示例：
 
@@ -92,7 +98,7 @@ intents 请参照[这里](https://bot.q.qq.com/wiki/develop/api-v2/dev-prepare/i
 ```
 
 ::: danger
-请务必不要分享`config.json`给任何陌生人！
+请务必不要分享 `config.json` 给任何陌生人！
 :::
 
 接下来，再次运行命令：
@@ -105,14 +111,14 @@ npx cocotais-bot start
 
 ## 常见问题
 
-### PM2有其余运行进程。当前版本仅支持独占PM2运行。
+### PM2 有其余运行进程。当前版本仅支持独占 PM2 运行。
 
 ::: warning
 这是一个已知问题，将会在近几个版本内修复。
 :::
 
-当前版本的Cocotais Bot并没有对PM2运行的进程进行分类管理，也就是说Cocotais Bot在PM2中**并不认识**后台进程。
-为了确保机器人的正常运行，开发者直接对PM2多进程运行做了限制。
+当前版本的 Cocotais Bot 并没有对 PM2 运行的进程进行分类管理，也就是说 Cocotais Bot 在 PM2 中**并不认识**后台进程。
+为了确保机器人的正常运行，开发者直接对 PM2 多进程运行做了限制。
 
 ### 连接已死亡，请检查网络或重启
 
@@ -120,9 +126,9 @@ npx cocotais-bot start
 这个问题较为复杂，如在阅读完方案后仍无法解决请联系开发者。
 :::
 
-一般来说，出现这个错误时，你的PM2后台进程会自动被删除。为了更好地解决问题，你需要采取一些手段以防止它被守护进程自动删除。
+一般来说，出现这个错误时，你的 PM2 后台进程会自动被删除。为了更好地解决问题，你需要采取一些手段以防止它被守护进程自动删除。
 
-首先，运行Cocotais Bot：
+首先，运行 Cocotais Bot：
 
 ```bash
 npx cocotais-bot start
@@ -141,7 +147,7 @@ npx cocotais-bot start
 终止批处理操作吗(Y/N)? Y
 ```
 
-这时，你的后台进程应该完好地运行在pm2中。运行以下命令查看日志：
+这时，你的后台进程应该完好地运行在 pm2 中。运行以下命令查看日志：
 
 ```bash
 pm2 log
@@ -153,7 +159,7 @@ pm2 log
 - ~/.pm2/logs/CocotaisBotXXXXXXXXX-out.log
 - ~/.pm2/logs/CocotaisBotXXXXXXXXX-error.log
 
-我们只需要查看以`out.log`结尾字样的日志。退出pm2的日志，用你的编辑器手动打开日志文件。
+我们只需要查看以`out.log`结尾字样的日志。退出 pm2 的日志，用你的编辑器手动打开日志文件。
 
 #### 1. 日志文件中包含`Request failed with status code 400`
 
@@ -161,11 +167,11 @@ pm2 log
 这是一个已知问题，将会在近几个版本内修复。
 :::
 
-这个问题一般在Windows平台上出现。请尝试使用WSL或Linux环境运行实例。
+这个问题一般在 Windows 平台上出现。请尝试使用 WSL 或 Linux 环境运行实例。
 
 #### 2. 日志文件中包含`intents 配置有误`
 
-请参照[这里](https://bot.q.qq.com/wiki/develop/api-v2/dev-prepare/interface-framework/event-emit.html#%E4%BA%8B%E4%BB%B6%E8%AE%A2%E9%98%85intents)对照填写`config.json`中的intents。
+请参照[这里](https://bot.q.qq.com/wiki/develop/api-v2/dev-prepare/interface-framework/event-emit.html#%E4%BA%8B%E4%BB%B6%E8%AE%A2%E9%98%85intents)对照填写`config.json`中的 intents。
 
 #### 3. 日志文件中包含`Error: [object Object]`
 
