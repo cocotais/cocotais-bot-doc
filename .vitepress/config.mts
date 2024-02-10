@@ -5,13 +5,15 @@ export default defineConfig({
   title: "Cocotais Bot",
   description: "基于 qq-bot-sdk 实现的的QQ官方机器人框架",
   cleanUrls: true,
+
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
 
     logo: "https://static.codemao.cn/coco/player/unstable/BytsUP4j6.image/png?hash=FmjJ-D3XwRi0OxgAgsXHEKHPhSLg",
     nav: [
       { text: '入门', link: '/starter/quickstart' },
-      { text: '开发', link: '/develope/plugins' }
+      { text: '开发', link: '/develope/plugins' },
+      { text: '更新日志', link: '/changelog' }
     ],
 
     sidebar: [
@@ -27,7 +29,8 @@ export default defineConfig({
         items: [
           { text: '插件开发', link: '/develope/plugins' }
         ]
-      }
+      },
+      { text: '更新日志', link: '/changelog' }
     ],
 
     socialLinks: [
@@ -39,7 +42,7 @@ export default defineConfig({
     },
 
     outline: {
-      level: 2,
+      level: [2, 3],
       label: '大纲',
     },
     docFooter: {
@@ -63,6 +66,7 @@ export default defineConfig({
           modal: {
             noResultsText: '无法找到相关结果',
             resetButtonTitle: '清除查询条件',
+            ButtonTitle: '清除查询条件',
             footer: {
               selectText: '选择',
               navigateText: '切换',
@@ -71,6 +75,16 @@ export default defineConfig({
           }
         }
       }
+    }
+  },
+  
+  markdown: {
+    container: {
+      tipLabel: '提示',
+      warningLabel: '警告',
+      dangerLabel: '危险',
+      infoLabel: '信息',
+      detailsLabel: '详细信息'
     }
   }
 })

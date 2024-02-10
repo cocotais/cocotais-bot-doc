@@ -1,13 +1,12 @@
-# CLI用法
+# CLI 用法
 
 CLI 是你在使用各种程序时必不可少的一个工具。这篇文章会带你走进 Cocotais Bot CLI。
 
 ## 基本使用
 
-在你阅读[快速开始](/starter/quickstart)的时候，你已经对 CLI 的用法进行了一次预习。这是一份完整的使用说明：
+在你阅读 [快速开始](/starter/quickstart) 的时候，你已经对 CLI 的用法进行了一次预习。这是一份完整的使用说明：
 
 ```shell
-
 npx cocotais-bot                        # 显示帮助信息
 npx cocotais-bot help                   # 显示帮助信息
 
@@ -18,7 +17,6 @@ npx cocotais-bot plugin apply <目录>    # 运行位于目录的插件
 npx cocotais-bot plugin reload <ID>     # 重载对应ID的插件
 npx cocotais-bot plugin remove <ID>     # 删除对应ID的插件
 npx cocotais-bot plugin list            # 查看插件列表
-
 ```
 
 更加具体的使用说明，可以在 [Readme](https://www.npmjs.com/package/cocotais-bot?activeTab=readme) 上找到
@@ -69,13 +67,13 @@ pm2 log
 
 你应该会看到**三个**日志分类：
 
-- ~/.pm2/pm2.log
-- ~/.pm2/logs/CocotaisBotXXXXXXXXX-out.log
-- ~/.pm2/logs/CocotaisBotXXXXXXXXX-error.log
+- `~/.pm2/pm2.log`
+- `~/.pm2/logs/CocotaisBotXXXXXXXXX-out.log`
+- `~/.pm2/logs/CocotaisBotXXXXXXXXX-error.log`
 
-我们只需要查看以`out.log`结尾字样的日志。退出 pm2 的日志，用你的编辑器手动打开日志文件。
+我们只需要查看以 `out.log` 结尾字样的日志。退出 pm2 的日志，用你的编辑器手动打开日志文件。
 
-#### 1. 日志文件中包含`Request failed with status code 400`
+#### 1. 日志文件中包含 `Request failed with status code 400`
 
 ::: warning
 这是一个已知问题，将会在近几个版本内修复。
@@ -83,11 +81,11 @@ pm2 log
 
 这个问题一般在 Windows 平台上出现。请尝试使用 WSL 或 Linux 环境运行实例。
 
-#### 2. 日志文件中包含`intents 配置有误`
+#### 2. 日志文件中包含 `intents 配置有误`
 
-请参照[这里](https://bot.q.qq.com/wiki/develop/api-v2/dev-prepare/interface-framework/event-emit.html#%E4%BA%8B%E4%BB%B6%E8%AE%A2%E9%98%85intents)对照填写`config.json`中的 intents。
+请参照 [这里](https://bot.q.qq.com/wiki/develop/api-v2/dev-prepare/interface-framework/event-emit.html#%E4%BA%8B%E4%BB%B6%E8%AE%A2%E9%98%85intents) 对照填写 `config.json` 中的 intents。
 
-#### 3. 日志文件中包含`Error: [object Object]`
+#### 3. 日志文件中包含 `Error: [object Object]`
 
-你的日志有误。你打开的是文件名以`error.log`结尾的日志文件。请打开文件名以`out.log`结尾的日志，并再次对照排查。
-如果你确认你打开的是文件名以`out.log`结尾的日志，请携带完整日志文件联系开发人员。
+你的日志有误。你打开的是文件名以 `error.log` 结尾的日志文件。请打开文件名以 `out.log` 结尾的日志，并再次对照排查。
+如果你确认你打开的是文件名以 `out.log` 结尾的日志，请携带完整日志文件联系开发人员。

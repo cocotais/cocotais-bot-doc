@@ -4,10 +4,8 @@
 
 ## 准备
 
-<!-- TODO: 记得改准备介绍的node版本 -->
-
 - [Node.js](https://nodejs.org/) 18 及以上版本。
-- 通过命令行界面 (CLI) 访问 Cocotais Bot 的终端。
+- 通过 命令行界面 (CLI) 访问 Cocotais Bot 的终端。
 
 ## 下载
 
@@ -33,7 +31,7 @@ npx cocotais-bot
 
 如果一切正常，你应该看到以下输出：
 
-```txt
+```
 Cocotais Bot 守护进程帮助
 版本：1.x.x
 使用方法：
@@ -62,7 +60,7 @@ npx cocotais-bot start
 
 一般情况下，机器人不会启动，而是会报错退出运行：
 
-```text
+```
 [守护进程] 已启动
 [守护进程] LaunchBus成功
 [后台进程] 启动失败：config.json未创建，已为您创建
@@ -108,19 +106,17 @@ intents 请参照 [这里](https://bot.q.qq.com/wiki/develop/api-v2/dev-prepare/
 npx cocotais-bot start
 ```
 
-机器人将会开始在后台正常运行。如果并不是这样，请查阅 [CLI常见问题](/starter/cli#常见问题)
+机器人将会开始在后台正常运行。如果并不是这样，请查阅 [CLI 常见问题](/starter/cli#常见问题)
 
 ## 常见问题
 
-### 1. 出现类似于`cocotais-bot: command not found`的错误
+### 1. 出现类似于 `cocotais-bot: command not found` 的错误
 
 这通常有两种可能：
 
-1. 你没有使用`npx`运行Cocotais Bot。我们推荐使用`npx cocotais-bot`来控制机器人实例，尽管你可能使用了全局安装。
-2. 当前的项目目录下没有安装Cocotais Bot。请尝试跟随 [步骤](#下载) 在目录中安装Cocotais Bot。
+1. 你没有使用`npx`运行 Cocotais Bot。我们推荐使用`npx cocotais-bot`来控制机器人实例，尽管你可能使用了全局安装。
+2. 当前的项目目录下没有安装 Cocotais Bot。请尝试跟随 [步骤](#下载) 在目录中安装 Cocotais Bot。
 
-### 2. 如何在只安装一次CLI的情况下部署多个机器人实例？
+### 2. 如何在只安装一次 CLI 的情况下部署多个机器人实例？
 
 请参见 [这个提示](#multi-bot) 进行安装。
-
-
