@@ -6,6 +6,8 @@ export default defineConfig({
   description: "基于 qq-bot-sdk 实现的的QQ官方机器人框架",
   cleanUrls: true,
 
+  head: [['link', { rel: 'icon', href: 'https://static.codemao.cn/coco/player/unstable/BytsUP4j6.image/png?hash=FmjJ-D3XwRi0OxgAgsXHEKHPhSLg' }]],
+
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
 

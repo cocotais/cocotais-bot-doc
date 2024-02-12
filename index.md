@@ -4,8 +4,11 @@ layout: home
 
 hero:
   name: "Cocotais Bot"
-  text: ""
-  tagline: "快捷、轻量、易用的QQ机器人框架"
+  text: "基于 qq-bot-sdk 实现的QQ官方机器人框架"
+  tagline: "快捷、轻量、易用。"
+  image:
+    src: https://static.codemao.cn/coco/player/unstable/ryYpO7wja.image/png?hash=Fk5MB4bIWWoeu5uaE4GQ2VJM0L3o
+    alt: Cocotais Bot
   actions:
     - theme: brand
       text: 快速开始
