@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -9,81 +9,88 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
 
-    logo: "https://static.codemao.cn/coco/player/unstable/BytsUP4j6.image/png?hash=FmjJ-D3XwRi0OxgAgsXHEKHPhSLg",
+    logo: "/favicon.png",
+    head: [
+      [
+        "link",
+        {
+          rel: "icon",
+          href: "/favicon.ico",
+        },
+      ],
+    ],
     nav: [
-      { text: '入门', link: '/starter/quickstart' },
-      { text: '开发', link: '/develope/plugins' },
-      { text: '更新日志', link: '/changelog' }
+      { text: "入门", link: "/starter/quickstart" },
+      { text: "开发", link: "/develop/plugins" },
+      { text: "更新日志", link: "/changelog" },
     ],
 
     sidebar: [
       {
-        text: '入门',
+        text: "入门",
         items: [
-          { text: '快速开始', link: '/starter/quickstart' },
-          { text: 'CLI用法', link: '/starter/cli' }
-        ]
+          { text: "快速开始", link: "/starter/quickstart" },
+          { text: "CLI用法", link: "/starter/cli" },
+        ],
       },
       {
-        text: '开发',
-        items: [
-          { text: '插件开发', link: '/develope/plugins' }
-        ]
+        text: "开发",
+        items: [{ text: "插件开发", link: "/develop/plugins" }],
       },
-      { text: '更新日志', link: '/changelog' }
+      { text: "更新日志", link: "/changelog" },
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/cocotais/cocotais-bot' }
+      { icon: "github", link: "https://github.com/cocotais/cocotais-bot" },
     ],
 
     footer: {
-      copyright: '© Cocotais 2024',
+      copyright: "© Cocotais 2024",
     },
 
     outline: {
       level: [2, 3],
-      label: '大纲',
+      label: "大纲",
     },
     docFooter: {
-      prev: '上一章',
-      next: '下一章',
+      prev: "上一章",
+      next: "下一章",
     },
-    darkModeSwitchLabel: '主题',
-    lightModeSwitchTitle: '切换到亮色主题',
-    darkModeSwitchTitle: '切换到深色主题',
-    sidebarMenuLabel: '目录',
-    returnToTopLabel: '回到顶部',
-    
+    darkModeSwitchLabel: "主题",
+    lightModeSwitchTitle: "切换到亮色主题",
+    darkModeSwitchTitle: "切换到深色主题",
+    sidebarMenuLabel: "目录",
+    returnToTopLabel: "回到顶部",
+
     search: {
-      provider: 'local',
+      provider: "local",
       options: {
         translations: {
           button: {
-            buttonText: '搜索文档',
-            buttonAriaLabel: '搜索文档'
+            buttonText: "搜索文档",
+            buttonAriaLabel: "搜索文档",
           },
           modal: {
-            noResultsText: '无法找到相关结果',
-            resetButtonTitle: '清除查询条件',
+            noResultsText: "无法找到相关结果",
+            resetButtonTitle: "清除查询条件",
             footer: {
-              selectText: '选择',
-              navigateText: '切换',
-              closeText: '关闭'
-            }
-          }
-        }
-      }
-    }
+              selectText: "选择",
+              navigateText: "切换",
+              closeText: "关闭",
+            },
+          },
+        },
+      },
+    },
   },
-  
+
   markdown: {
     container: {
-      tipLabel: '提示',
-      warningLabel: '警告',
-      dangerLabel: '危险',
-      infoLabel: '信息',
-      detailsLabel: '详细信息'
-    }
-  }
-})
+      tipLabel: "提示",
+      warningLabel: "警告",
+      dangerLabel: "危险",
+      infoLabel: "信息",
+      detailsLabel: "详细信息",
+    },
+  },
+});
