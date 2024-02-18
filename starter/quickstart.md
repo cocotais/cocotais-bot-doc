@@ -92,7 +92,7 @@ intents 请参照 [这里](https://bot.q.qq.com/wiki/develop/api-v2/dev-prepare/
 {
     "appID": "102059584",
     "token": "FgBu4h9PzL7vG11SXyNp8qZQQtwD0Tfo",
-    "intents": ["GROUP_AT_MESSAGE_CREATE","C2C_MESSAGE_CREATE"]
+    "intents": ["GROUP","GUILDS"]
 }
 ```
 

@@ -1,8 +1,11 @@
 ::: details V1.4.0 (Next)
-<input type='checkbox' disabled>✨ 更好的代码补全</input>
+<input type='checkbox' disabled checked>✨ 更好的代码补全 [V1.4.0-0 完成]</input>
 
 <input type='checkbox' disabled>🐛 修复已知问题</input>
 :::
+
+# V1.4.0-0 (`2024-02-18`)
+- ✨ 更好的代码补全
 
 # V1.3.2 (`2024-02-14`)
 - ✨ 引入builtin指令概念

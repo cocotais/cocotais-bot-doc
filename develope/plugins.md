@@ -90,21 +90,25 @@ plugin.onMounted((bot)=>{
 :::
 
 ::: info
-在目前，`on` 方法的接收函数并不支持语法补全。它目前的定义类似于这样：
+在以前，`on` 方法的接收函数并不支持语法补全。它目前的定义类似于这样：
 
 ```ts
 on(event: AllEvents, listener: Function): this;
 ```
 
-我们将在近几个版本将其优化成这样：
+在版本号≥`v1.4.0-0`的版本中，已经得到了增强：
 
 ```ts
-on<E extends AllEvents>(event: E, listener: BotEventHandler<E>): this;
+on<T extends keyof EventList>(event: T, listener: (arg: EventList[T]) => void): this;
 ```
 
 :::
 
-`plugin.onMounted` 函数里，接收函数的参数 `bot` 的类型是 `IOpenAPI`，这是机器人的控制对象，内包含机器人的各种收发方法。`plugin.on` 函数里，接收函数的参数 `event` 的类型**目前**为 `any`，为了避免出现问题，你可以对照 [QQ 机器人文档](https://bot.q.qq.com/wiki/develop/api-v2/) 里的 `事件` 文档 和 [接收到的通知示例](https://bot.q.qq.com/wiki/develop/nodesdk/wss/model.html#%E6%8E%A5%E6%94%B6%E5%88%B0%E7%9A%84%E9%80%9A%E7%9F%A5%E7%A4%BA%E4%BE%8B) 进行编写，我们也会尽快优化本文档。
+`plugin.onMounted` 函数里，接收函数的参数 `bot` 的类型是 `IOpenAPI`，这是机器人的控制对象，内包含机器人的各种收发方法。
+
+::: tip
+在版本号＜`v1.4.0-0`的版本中，`plugin.on` 函数里接收函数的参数 `event` 的类型为 `any`，为了避免出现问题，你可以对照 [QQ 机器人文档](https://bot.q.qq.com/wiki/develop/api-v2/) 里的 `事件` 文档 和 [接收到的通知示例](https://bot.q.qq.com/wiki/develop/nodesdk/wss/model.html#%E6%8E%A5%E6%94%B6%E5%88%B0%E7%9A%84%E9%80%9A%E7%9F%A5%E7%A4%BA%E4%BE%8B) 进行编写。我们还是推荐使用最新版本进行插件的开发。
+:::
 
 这是一个简单的示例：
 
