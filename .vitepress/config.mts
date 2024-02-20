@@ -29,10 +29,16 @@ export default defineConfig({
       {
         text: '开发',
         items: [
-          { text: '插件开发', link: '/develope/plugins' }
+          { text: '插件开发', link: '/develope/plugins' },
+          { text: '插件进阶', link: '/develope/advanced' }
         ]
       },
-      { text: '更新日志', link: '/changelog' }
+      {
+        text: '参考',
+        items: [
+          { text: '更新日志', link: '/reference/changelog' },
+        ]
+      },
     ],
 
     socialLinks: [
