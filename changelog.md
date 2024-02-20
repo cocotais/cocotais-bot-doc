@@ -1,8 +1,19 @@
 ::: details V1.4.0 (Next)
 <input type='checkbox' disabled checked>✨ 更好的代码补全 [V1.4.0-0 完成]</input>
 
-<input type='checkbox' disabled>🐛 修复已知问题</input>
+<input type='checkbox' disabled checked>🐛 修复已知问题</input>
+
+<input type='checkbox' disabled>🐛 修复buildtin指令无法装载的问题</input>
 :::
+
+# V1.4.0-3 (`2024-02-19`)
+- 🐛 修复已知问题
+
+# V1.4.0-2 (`2024-02-19`)
+- 🐛 修复无法触发指令的问题
+
+# V1.4.0-1 (`2024-02-19`)
+- 🐛 修复新版无法收到消息的问题
 
 # V1.4.0-0 (`2024-02-18`)
 - ✨ 更好的代码补全
