@@ -15,7 +15,7 @@ export default defineConfig({
     nav: [
       { text: '入门', link: '/starter/quickstart' },
       { text: '开发', link: '/develope/plugins' },
-      { text: '更新日志', link: '/changelog' }
+      { text: '参考', link: '/reference/changelog' }
     ],
 
     sidebar: [

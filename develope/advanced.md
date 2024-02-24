@@ -19,18 +19,18 @@ export default {
         version: "1.0.0"
     },
     enableBot(_context, _ws, _botId) {
-        CocotaisBotPlugin.prototype.emit('TIME',{
+        CocotaisBotPlugin.prototype.emit('TIME', {
             eventType: "TIME",
             eventId: "",
             msg: {
                 value: Date.now()
             }
-        })
+        });
     },
     disableBot() {
-        
+        // ...
     },
-}
+};
 ```
 
 ```js plugin_B.js
@@ -38,16 +38,16 @@ import { CocotaisBotPlugin } from "./plugin";
 
 const plugin = new CocotaisBotPlugin("time-get", "1.0.0");
 
-plugin.onMounted((_)=>{
-    plugin.on('TIME',(arg)=>{
-        console.log(arg.msg.value)
-    })
-})
+plugin.onMounted((_) => {
+    plugin.on('TIME', (arg) => {
+        console.log(arg.msg.value);
+    });
+});
 
-export default plugin
+export default plugin;
 ```
 
-在机器人以`--no-autoload`模式启动后，运行以下代码：
+在机器人以 `--no-autoload` 模式启动后，运行以下代码：
 ```bash
 npx cocotais-bot plugin apply ./plugins/plugin_B.js
 npx cocotais-bot plugin apply ./plugins/plugin_A.js
@@ -57,25 +57,26 @@ npx cocotais-bot plugin apply ./plugins/plugin_A.js
 1708390975998
 ```
 
-在以上示例中，plugin_A.js通过操作`CocotaisBotPlugin.prototype.emit`方法，触发了plugin_B.js中的`TIME`事件。
+在以上示例中，plugin_A.js 通过操作 `CocotaisBotPlugin.prototype.emit` 方法，触发了 plugin_B.js 中的 `TIME` 事件。
 
-## 2. onMounted与onUnloaded
+## 2. onMounted 与 onUnloaded
 
-在插件开发中，你可以使用onMounted和onUnloaded方法来监听插件的初始化和卸载。
+在插件开发中，你可以使用 onMounted 和 onUnloaded 方法来监听插件的初始化和卸载。
 
 ```js plugin.js
 import { CocotaisBotPlugin } from "./plugin";
 
 const plugin = new CocotaisBotPlugin("my-plugin", "1.0.0");
 
-plugin.onMounted((_)=>{
-    console.log("Hi!")
-})
-plugin.onUnloaded(()=>{
-    console.log("Bye!")
-})
+plugin.onMounted((_) => {
+    console.log("Hi!");
+});
 
-export default plugin
+plugin.onUnloaded(() => {
+    console.log("Bye!");
+});
+
+export default plugin;
 ```
 
 这是两个方法的类型定义：
@@ -85,12 +86,12 @@ onMounted(fun: (bot: IOpenAPI) => void) : void
 onUnloaded(fun: () => void) : void
 ```
 
-可以看到，onMounted里的函数有一个参数：bot，这是一个`IOpenAPI`的实例，包含机器人的各种方法。插件需要这些方法以操作机器人。而onUnloaded里的函数则没有参数。
+可以看到，onMounted 里的函数有一个参数：bot，这是一个 `IOpenAPI` 的实例，包含机器人的各种方法。插件需要这些方法以操作机器人。而 onUnloaded 里的函数则没有参数。
 
 ## 3. 插件指令
 
 ::: danger
-插件指令在`v1.3.0`被首次引入，但直到`v1.4.0-3`才被完全实现。如你的机器人版本＜`v1.4.0-3`，请继续使用`plugin.on`方法。
+插件指令在 `v1.3.0` 被首次引入，但直到 `v1.4.0-3` 才被完全实现。如你的机器人版本＜ `v1.4.0-3`，请继续使用 `plugin.on` 方法。
 :::
 
 ::: warning
@@ -119,7 +120,6 @@ onUnloaded(fun: () => void) : void
          * @param id 命令ID
          */
         unregister(id: number) : void
-        }
     }
 ```
 
@@ -129,13 +129,13 @@ import { CocotaisBotPlugin } from "./plugin";
 
 const plugin = new CocotaisBotPlugin("command-plugin", "1.0.0");
 
-plugin.onMounted((_)=>{
+plugin.onMounted((_) => {
     plugin.command.register("/test", "测试指令", (msgs, event) => {
-        console.log(msgs[1])
-    })
-})
+        console.log(msgs[1]);
+    });
+});
 
-export default plugin
+export default plugin;
 ```
 
 在插件装载后，在群/文字子频道中对机器人发送这个消息：
