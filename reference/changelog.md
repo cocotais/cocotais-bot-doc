@@ -1,10 +1,12 @@
-::: details V1.4.0 (Next)
-<input type='checkbox' disabled checked>✨ 更好的代码补全 [V1.4.0-0 完成]</input>
+::: details V1.5.0 (2024-04)
+<input type='checkbox' disabled>✨ 新版事件系统</input>
 
-<input type='checkbox' disabled checked>🐛 修复已知问题</input>
-
-<input type='checkbox' disabled>🐛 修复buildtin指令无法装载的问题</input>
+<input type='checkbox' disabled>✨ 更多的内置插件</input>
 :::
+
+## V1.4.0 (`2024-03-02`)
+- 🐛 修复builtin:help无法收到私域消息的问题
+- 🐛 修复内置插件不会出现在列表中的问题
 
 ## V1.4.0-4 (`2024-03-01`)
 - 🧑‍💻 提升开发体验
