@@ -12,6 +12,7 @@ npx cocotais-bot help                   # 显示帮助信息
 
 npx cocotais-bot start                  # 启动机器人
 npx cocotais-bot start --no-autoload    # 启动机器人，禁用自动加载插件(v1.2.0-0)
+npx cocotais-bot start --no-killbot     # 启动机器人，禁用出错自动删除进程(Next)
 
 npx cocotais-bot plugin apply <目录>    # 运行位于目录的插件
 npx cocotais-bot plugin reload <ID>     # 重载对应ID的插件
@@ -32,10 +33,32 @@ npx cocotais-bot plugin list            # 查看插件列表
 当前版本的 Cocotais Bot 并没有对 PM2 运行的进程进行分类管理，也就是说 Cocotais Bot 在 PM2 中**并不认识**后台进程。
 为了确保机器人的正常运行，开发者直接对 PM2 多进程运行做了限制。
 
+### 机器人正常运行，但是没有响应
+
+运行以下命令查看日志：
+
+```bash
+pm2 log
+```
+
+你应该会看到**三个**日志分类：
+
+- `~/.pm2/pm2.log`
+- `~/.pm2/logs/CocotaisBotXXXXXXXXX-out.log`
+- `~/.pm2/logs/CocotaisBotXXXXXXXXX-error.log`
+
+我们只需要查看以 `out.log` 结尾字样的日志。退出 pm2 的日志，用你的编辑器手动打开日志文件。
+
+随后请在编辑器中搜索 `[ERR`，参阅 [错误速查表](/reference/errors) 寻找你的错误。
+
 ### 连接已死亡，请检查网络或重启
 
 ::: warning
 这个问题较为复杂，如在阅读完方案后仍无法解决请联系开发者。
+:::
+
+::: tip
+如果你的Cocotais Bot版本＞`v1.4.0`，可以直接使用`npx cocotais-bot start --no-killbot`以保留PM2后台进程，随后可直接跳到查看日志的步骤。
 :::
 
 一般来说，出现这个错误时，你的 PM2 后台进程会自动被删除。为了更好地解决问题，你需要采取一些手段以防止它被守护进程自动删除。
@@ -75,11 +98,7 @@ pm2 log
 
 #### 1. 日志文件中包含 `Request failed with status code 400`
 
-::: warning
-这是一个已知问题，将会在近几个版本内修复。
-:::
-
-这个问题一般在 Windows 平台上出现。请尝试使用 WSL 或 Linux 环境运行实例。
+请关闭系统的代理服务器，然后重试。
 
 #### 2. 日志文件中包含 `intents 配置有误`
 
