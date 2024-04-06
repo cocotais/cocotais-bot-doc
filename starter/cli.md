@@ -12,7 +12,7 @@ npx cocotais-bot help                   # 显示帮助信息
 
 npx cocotais-bot start                  # 启动机器人
 npx cocotais-bot start --no-autoload    # 启动机器人，禁用自动加载插件(v1.2.0-0)
-npx cocotais-bot start --no-killbot     # 启动机器人，禁用出错自动删除进程(Next)
+npx cocotais-bot start --no-killbot     # 启动机器人，禁用出错自动删除进程(v1.4.1)
 
 npx cocotais-bot plugin apply <目录>    # 运行位于目录的插件
 npx cocotais-bot plugin reload <ID>     # 重载对应ID的插件
@@ -57,11 +57,10 @@ pm2 log
 这个问题较为复杂，如在阅读完方案后仍无法解决请联系开发者。
 :::
 
-::: tip
-如果你的Cocotais Bot版本＞`v1.4.0`，可以直接使用`npx cocotais-bot start --no-killbot`以保留PM2后台进程，随后可直接跳到查看日志的步骤。
-:::
+请使用`npx cocotais-bot start --no-killbot`重启Bot以保留PM2后台进程。
 
-一般来说，出现这个错误时，你的 PM2 后台进程会自动被删除。为了更好地解决问题，你需要采取一些手段以防止它被守护进程自动删除。
+::: tip
+如果你的Cocotais Bot版本≤`v1.4.0`，当出现这个错误时，你的 PM2 后台进程会自动被删除。为了更好地解决问题，你需要采取一些手段以防止它被守护进程自动删除。
 
 首先，运行 Cocotais Bot：
 
@@ -82,7 +81,10 @@ npx cocotais-bot start
 终止批处理操作吗(Y/N)? Y
 ```
 
-这时，你的后台进程应该完好地运行在 pm2 中。运行以下命令查看日志：
+这时，你的后台进程应该完好地运行在 pm2 中。
+:::
+
+随后运行以下命令查看日志：
 
 ```bash
 pm2 log

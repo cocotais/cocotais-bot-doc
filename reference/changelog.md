@@ -1,8 +1,12 @@
-::: details V1.5.0 (2024-04)
+::: details V1.5.0
 <input type='checkbox' disabled>✨ 新版事件系统</input>
 
 <input type='checkbox' disabled>✨ 更多的内置插件</input>
 :::
+
+## V1.4.1 (`2024-04-06`)
+- ✨ 新增`--no-killbot`选项
+- 📝 新版README
 
 ## V1.4.0 (`2024-03-02`)
 - 🐛 修复builtin:help无法收到私域消息的问题
