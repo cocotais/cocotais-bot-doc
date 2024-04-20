@@ -37,6 +37,7 @@ export default defineConfig({
         text: '参考',
         items: [
           { text: '更新日志', link: '/reference/changelog' },
+          { text: '错误速查表', link: '/reference/errors' },
         ]
       },
     ],

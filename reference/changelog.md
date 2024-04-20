@@ -4,6 +4,9 @@
 <input type='checkbox' disabled>✨ 更多的内置插件</input>
 :::
 
+## V1.4.2 (`2024-04-20`)
+- 🐛 修复报错[Object object]和一些错别字
+
 ## V1.4.1 (`2024-04-06`)
 - ✨ 新增`--no-killbot`选项
 - 📝 新版README
