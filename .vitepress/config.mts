@@ -14,7 +14,7 @@ export default defineConfig({
     logo: "https://static.codemao.cn/coco/player/unstable/BytsUP4j6.image/png?hash=FmjJ-D3XwRi0OxgAgsXHEKHPhSLg",
     nav: [
       { text: '入门', link: '/starter/quickstart' },
-      { text: '开发', link: '/develope/plugins' },
+      { text: '开发', link: '/develop/plugins' },
       { text: '参考', link: '/reference/changelog' }
     ],
 
@@ -29,8 +29,8 @@ export default defineConfig({
       {
         text: '开发',
         items: [
-          { text: '插件开发', link: '/develope/plugins' },
-          { text: '插件进阶', link: '/develope/advanced' }
+          { text: '插件开发', link: '/develop/plugins' },
+          { text: '插件进阶', link: '/develop/advanced' }
         ]
       },
       {

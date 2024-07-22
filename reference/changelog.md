@@ -1,8 +1,10 @@
-::: details V1.5.0
-<input type='checkbox' disabled>✨ 新版事件系统</input>
-
-<input type='checkbox' disabled>✨ 更多的内置插件</input>
-:::
+## V1.5.0 (`2024-07-22`)
+- ✨ 使用全新的事件系统 🎉
+- ✨ 新增 `echo` 内置插件
+- ✨ 增加 `reply` `at` `at_everyone` 快捷方法
+- 🐛 修复内置插件无法接收频道私聊
+- 🔧 使用 `pnpm`
+- ⬆️ 更新依赖 `qq-bot-sdk` 至 `1.6.2`
 
 ## V1.4.3 (`2024-05-01`)
 - 🐛 修复移除插件导致命令系统宕机的问题
