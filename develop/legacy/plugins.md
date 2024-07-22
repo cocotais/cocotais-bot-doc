@@ -1,9 +1,4 @@
-# 插件开发
-
-:: info
-本页面要求你的 Cocotais Bot 版本在 `1.5.0` 及以上。
-如你的版本号 `＜1.5.0` ，请阅读 [插件开发(旧)](/develop/legacy/plugins)
-::
+# 插件开发(旧)
 
 本页面将会带你走进 Cocotais Bot 的插件开发。
 
@@ -13,9 +8,11 @@
 
 一般来说，Cocotais Bot 的插件都存放在项目目录中的 `plugins` 文件夹中，你可以提前手动创建这个文件夹。
 
-接下来，在文件夹下新建一个文件 `my_first_plugin.js`。
-插件编写允许使用 ESM 模块的写法。如果你需要使用 ESM 模块写法，请将创建的插件文件后缀名改为 `.mjs`。
+::: info
+自 `v1.2.2` 开始，插件编写允许使用 ESM 模块的写法。如果你需要使用 ESM 模块写法，请将创建的插件文件后缀名改为 `.mjs`。
+:::
 
+接下来，在文件夹下新建一个文件 `my_first_plugin.js` ( ESM: `my_first_plugin.mjs` )。
 现在你的目录树看起来应该是这样的：
 ::: code-group
 
@@ -59,6 +56,10 @@ import { CocotaisBotPlugin } from "cocotais-bot";
 
 接下来，是时候用它创建一个插件了！
 
+::: warning
+当你的版本 ≤ `v1.1.2` 时，你将无法在 `CocotaisBotPlugin` 的构造器中传值。你的插件名称将会被强制设置为 `plugin`，版本不会被定义。
+:::
+
 ```js
 const plugin = new CocotaisBotPlugin("my-first-plugin", "0.1.0");
 ```
@@ -78,29 +79,52 @@ const plugin = new CocotaisBotPlugin("my-first-plugin", "0.1.0");
 
 ```js
 plugin.onMounted((bot)=>{
-    plugin.on("message.group",(event)=>{
+    plugin.on("GROUP_AT_MESSAGE_CREATE",(event)=>{
         // ...
     })
 })
 ```
 
+::: info
+在 `v1.3.1` 以前，`on` 方法的事件并不支持语法补全。我们推荐在编写插件时安装最新的 Cocotais Bot 版本。
+:::
+
+::: info
+在以前，`on` 方法的接收函数并不支持语法补全。它目前的定义类似于这样：
+
+```ts
+on(event: AllEvents, listener: Function): this;
+```
+
+在版本号≥`v1.4.0-0`的版本中，已经得到了增强：
+
+```ts
+on<T extends keyof EventList>(event: T, listener: (arg: EventList[T]) => void): this;
+```
+
+:::
+
 `plugin.onMounted` 函数里，接收函数的参数 `bot` 的类型是 `IOpenAPI`，这是机器人的控制对象，内包含机器人的各种收发方法。
+
+::: tip
+在版本号＜`v1.4.0-0`的版本中，`plugin.on` 函数里接收函数的参数 `event` 的类型为 `any`，为了避免出现问题，你可以对照 [QQ 机器人文档](https://bot.q.qq.com/wiki/develop/api-v2/) 里的 `事件` 文档 和 [接收到的通知示例](https://bot.q.qq.com/wiki/develop/nodesdk/wss/model.html#%E6%8E%A5%E6%94%B6%E5%88%B0%E7%9A%84%E9%80%9A%E7%9F%A5%E7%A4%BA%E4%BE%8B) 进行编写。我们还是推荐使用最新版本进行插件的开发。
+:::
 
 这是一个简单的示例：
 
 ```js
 plugin.onMounted((bot) => {
-    plugin.on("message.group", (event) => {
-        event.reply("Hi")
+    plugin.on("GROUP_AT_MESSAGE_CREATE", (event) => {
+        bot.groupApi.postMessage(event.msg.group_openid, {
+            content: "Hi",
+            msg_type: 0,
+            msg_id: event.msg.id
+        });
     });
 });
 ```
 
 实现了当收到群@消息时，会自动对消息回复 Hi。
-
-:: tip
-要想了解 `event.reply` 与更多快捷方法，请访问 [插件进阶](/develop/advanced) 。
-::
 
 ## STEP 4：导出插件实例
 
@@ -109,7 +133,7 @@ plugin.onMounted((bot) => {
 ::: code-group
 
 ```js [Common JS]
-module.exports = plugin;
+module.export = plugin;
 ```
 
 ```js [ES Module]
@@ -127,12 +151,16 @@ const { CocotaisBotPlugin } = require("cocotais-bot");
 const plugin = new CocotaisBotPlugin("my-first-plugin", "0.1.0");
 
 plugin.onMounted((bot) => {
-    plugin.on("message.group", (event) => {
-        event.reply("Hi")
+    plugin.on("GROUP_AT_MESSAGE_CREATE", (event) => {
+        bot.groupApi.postMessage(event.msg.group_openid, {
+            content: "Hi",
+            msg_type: 0,
+            msg_id: event.msg.id
+        });
     });
 });
 
-module.exports = plugin;
+module.export = plugin;
 ```
 
 ```js [ES Module]
@@ -141,8 +169,12 @@ import { CocotaisBotPlugin } from "cocotais-bot";
 const plugin = new CocotaisBotPlugin("my-first-plugin", "0.1.0");
 
 plugin.onMounted((bot) => {
-    plugin.on("message.group", (event) => {
-        event.reply("Hi")
+    plugin.on("GROUP_AT_MESSAGE_CREATE", (event) => {
+        bot.groupApi.postMessage(event.msg.group_openid, {
+            content: "Hi",
+            msg_type: 0,
+            msg_id: event.msg.id
+        });
     });
 });
 
@@ -158,6 +190,16 @@ export default plugin;
 ```bash
 npx cocotais-bot start
 ```
+
+::: info
+自 `v1.2.0-0` 开始，在运行 `npx cocotais-bot start` 时会自动装载 `plugins` 文件夹下的所有插件。
+如果你的版本 ＜ `v1.2.0-0`，请再多运行一行：
+
+```bash
+npx cocotais-bot plugin apply ./plugins/my_first_plugin.js
+```
+
+:::
 
 此时，你的机器人应该已经启动，并且插件也正常运行，可以尝试在群里@机器人进行测试。
 
