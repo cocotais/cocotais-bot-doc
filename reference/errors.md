@@ -6,6 +6,7 @@
 
 ```
 [ERR(000)] 创建机器人实例失败
+[ERR(000)] 请检查网络连接，随后重启机器人
 ```
 
 ::: warning
@@ -13,6 +14,7 @@
 :::
 
 机器人没有正确创建Client或WebSocket实例。
+如果在排查后未找到原因，请检查网络连接，随后重启机器人。
 
 ### 002
 
@@ -97,7 +99,11 @@
 ### 001
 
 ```
-[WARN(001)] 发送保活消息失败，可能无法正常操控机器人
+[WARN(001)] 无法向守护进程发送保活消息
+[WARN(001)] 遇到问题: TypeError
+[WARN(001)] 错误信息: Cannot read property 'send' of undefined
+[WARN(001)] 错误堆栈: at keepAlive (/home/cocotais/bot/node_modules/cocotais-bot/bot.js:8:13)
+[WARN(001)] // == 省略 == //
 ```
 
 ::: warning
@@ -110,6 +116,22 @@
 
 ```
 [WARN(003)] 不安全的执行抛出了错误
+[WARN(003)] 执行函数 myFunction
+[WARN(003)] 携带参数 my,func,tion
+[WARN(003)] 遇到问题: TypeError
+[WARN(003)] 错误信息: Cannot read property 'toString' of undefined
+[WARN(003)] 堆栈信息: at myFunction (/home/cocotais/bot/plugins/my-plugin/index.js:5:15)
+[WARN(003)] // == 省略 == //
 ```
 
 这不会影响你的机器人执行。如果出现影响机器人执行的情况，请联系开发者。
+
+### 011
+
+```
+[WARN(011)] 解析到未知的 WebSocket 事件
+[WARN(011)] 事件名称: <AN_UNKNOWN_EVENT>
+[WARN(011)] 跳过中......
+```
+
+这不会影响你的机器人执行。但是，这意味着机器人框架收到了未曾被测试过的事件，请将事件名称反馈给开发者。

@@ -14,14 +14,13 @@ Cocotais Bot 发布在 npm 上，推荐使用 npm 下载并部署。
 在你创建文件夹后，打开终端，在项目目录下运行：
 
 ```bash
-npm install cocotais-bot
+npm install cocotais-bot@stable
 ```
 
-如果你的地理位置在中国大陆，你可能需要使用 cnpm 以获取更佳的下载速度：
-
-```bash
-npm install -g cnpm --registry=https://registry.npm.taobao.org & cnpm install cocotais-bot
-```
+::: tip
+如果你想要体验最新的API与功能，请使用 `npm install cocotais-bot@latest`
+如果你想要使用最旧的受支持的版本，请使用 `npm install cocotais-bot@legacy`
+:::
 
 安装之后，你可以尝试输入以下命令：
 
@@ -43,7 +42,7 @@ Cocotais Bot 守护进程帮助
 ```
 
 ::: tip
-如果你有需要在同一环境下部署多个机器人实例，可以使用 `npm install cocotais-bot -g`（cnpm：`cnpm install cocotais-bot -g`）将 Cocotais Bot 安装到全局，这样，你可以在任意目录下运行 `npx cocotais-bot start` 以创建一个新的机器人实例。但是，我们**并不推荐**将这种方法运用到只需要部署一个机器人实例的场景。{#multi-bot}
+如果你有需要在同一环境下部署多个机器人实例，可以使用 `npm install cocotais-bot@stable -g`将 Cocotais Bot 安装到全局，这样，你可以在任意目录下运行 `npx cocotais-bot start` 以创建一个新的机器人实例。但是，我们**并不推荐**将这种方法运用到只需要部署一个机器人实例的场景。{#multi-bot}
 :::
 
 如果你在安装时遇到了问题，请查看 [这里](#常见问题)
@@ -84,7 +83,7 @@ npx cocotais-bot start
 | intents | Array\<string\> | √    |
 
 appID 与 token 需要你前往 [QQ 开放平台](https://q.qq.com/qqbot/#/developer/developer-setting) 获取；
-intents 请参照 [这里](https://bot.q.qq.com/wiki/develop/api-v2/dev-prepare/interface-framework/event-emit.html#%E4%BA%8B%E4%BB%B6%E8%AE%A2%E9%98%85intents) 对照填写。
+intents 请参照 [这里](https://bot.q.qq.com/wiki/develop/api-v2/dev-prepare/interface-framework/event-emit.html#%E4%BA%8B%E4%BB%B6%E8%AE%A2%E9%98%85intents) 对照填写。如保留空列表，则视为订阅所有事件。
 
 这是一个填写好的示例：
 
