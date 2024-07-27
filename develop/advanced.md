@@ -1,9 +1,9 @@
 # 插件进阶
 
-:: info
+::: info
 本页面要求你的 Cocotais Bot 版本在 `1.5.0` 及以上。
 如你的版本号 `＜1.5.0` ，请阅读 [插件进阶(旧)](/develop/legacy/advanced)
-::
+:::
 
 本页面将会带你开发 Cocotais Bot 的进阶插件。
 

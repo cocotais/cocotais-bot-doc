@@ -1,9 +1,9 @@
 # 插件开发
 
-:: info
+::: info
 本页面要求你的 Cocotais Bot 版本在 `1.5.0` 及以上。
 如你的版本号 `＜1.5.0` ，请阅读 [插件开发(旧)](/develop/legacy/plugins)
-::
+:::
 
 本页面将会带你走进 Cocotais Bot 的插件开发。
 
@@ -98,9 +98,9 @@ plugin.onMounted((bot) => {
 
 实现了当收到群@消息时，会自动对消息回复 Hi。
 
-:: tip
+::: tip
 要想了解 `event.reply` 与更多快捷方法，请访问 [插件进阶](/develop/advanced) 。
-::
+:::
 
 ## STEP 4：导出插件实例
 
