@@ -158,7 +158,7 @@ export class CocotaisBotPlugin extends EventEmitter {
 `onMounted` 与 `onUnloaded` 的实现很简单，它们只是将传入的函数赋给 `_mount` 与 `_unmount` 。
 当插件被挂载时，会执行 `_mount` 函数，当插件被卸载时，会执行 `_unmount` 函数。
 
-## 4. 插件事件
+## 4. 插件事件 <Badge type="tip" text="New" />
 
 在插件开发中，我们通过 `plugin.on` 监听了 `message.group` 事件，当收到群消息时，会回复 `Hi` 。
 得益于 `EventEmitter` 的特性， `CocotaisBotPlugin` 的事件监听器 `on` 与 `once` 都是 `EventEmitter` 的实例方法，因此，你可以在插件中监听任何发出的事件。
@@ -182,7 +182,7 @@ export interface CocotaisBotPlugin {
 
 在 `1.5.0` 版本中，我们引进了全新的事件系统。其实现相较于旧版的事件系统，更加易懂，但实现也相对较复杂。如果你感兴趣，可以参考 [深入源码(WIP)](./deep-in-source) 。
 
-## 5. 快捷方法
+## 5. 快捷方法 <Badge type="tip" text="New" />
 
 Cocotais Bot 提供了一些快捷方法，它们可以让你更方便地使用插件。
 

@@ -1,4 +1,8 @@
-# 插件开发(旧)
+# 插件开发(旧) <Badge type="danger" text="Deprecated" />
+
+::: danger
+当前页面下的内容已过时。请参考 [更新指导](../upgrade-guide) 了解如何升级。
+:::
 
 本页面将会带你走进 Cocotais Bot 的插件开发。
 
