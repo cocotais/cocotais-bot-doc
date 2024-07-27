@@ -21,7 +21,7 @@ features:
   - title: 快捷
     details: 使用NodeJS+NPM即可快速部署机器人实例。
   - title: 轻量
-    details: 打包后仅18个文件，70KB。
+    details: 打包后仅20个文件，不到100KB。
   - title: 易用
     details: 提供了详细的文档，丰富的代码补全。
 ---

@@ -242,7 +242,7 @@ at_everyone: () => string
 ```ts
     command = {
         name: string,
-        register<T extends 'guild' | 'group' | 'direct' | 'c2c'>(match: string, desc: string, fun: (type: T, msgs: string[], event: T extends 'group' ? GroupMessageEvent : T extends 'c2c' ? C2cMessageEvent : GuildMessageEvent) => void): void
+        register<T extends 'guild' | 'group' | 'direct' | 'c2c'>(match: string, desc: string, fun: (type: T, msgs: string[], event: T extends 'group' ? GroupMessageEvent : T extends 'c2c' ? C2cMessageEvent : GuildMessageEvent) => void, options?: CommandOption): void
         unregister(id: number): void
     }
 ```
@@ -270,6 +270,38 @@ export default plugin;
 查看PM2日志，发现了输出：
 ```
 hello
+```
+
+要想设置仅在指定的群聊触发，或不在指定的群聊触发，可以使用筛选器：
+
+```ts
+export interface CommandOption {
+    availableScenes?: ('c2c' | 'group' | 'guild' | 'direct')[],
+    onlyTriggerAt?: string[],
+    dontTriggerAt?: string[]
+}
+```
+
+示例：
+
+```js options.js
+import { CocotaisBotPlugin } from "./plugin";
+
+const plugin = new CocotaisBotPlugin("option-plugin", "1.0.0");
+
+plugin.onMounted((_) => {
+    plugin.command.register("/group", "群指令", (type, msgs, event) => {
+        console.log("only triggers in groups");
+    }, { availableScenes: ["group"] });
+    plugin.command.register("/only_you", "只有你能看见！", (type, msgs, event) => {
+        console.log("only YOU can see");
+    }, { onlyTriggerAt: ["0123456789ABCDEF"] /* 你的 OpenID */});
+    plugin.command.register("/not_you", "你不能看见！", (type, msgs, event) => {
+        console.log("you can't see me");
+    }, { dontTriggerAt: ["0123456789ABCDEF"] /* 你的 OpenID */});
+});
+
+export default plugin;
 ```
 
 对于指令系统的实现，此处不再赘述。请阅读 [深入源码(WIP)](./deep-in-source) 。
