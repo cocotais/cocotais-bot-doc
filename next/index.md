@@ -12,7 +12,7 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /starter/quickstart
+      link: /next/starter/quickstart
     - theme: alt
       text: NPM
       link: https://www.npmjs.com/package/cocotais-bot
@@ -26,8 +26,5 @@ features:
     details: 提供了详细的文档，丰富的代码补全。
 ---
 
-::: danger
-Cocotais Bot 文档 正在进行重构。重构期间，处于 WIP 状态的文档将不会更新。
-
-若想查看最新进度，请访问 [<Badge type='tip' text='Next' /> 版文档](/next/)。
-:::
+::: info
+你正在阅读 Cocotais Bot 的 <Badge type='tip' text='Next' /> 版文档。

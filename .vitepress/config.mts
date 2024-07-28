@@ -18,29 +18,32 @@ export default defineConfig({
       { text: '参考', link: '/reference/changelog' }
     ],
 
-    sidebar: [
-      {
-        text: '入门',
-        items: [
-          { text: '快速开始', link: '/starter/quickstart' },
-          { text: 'CLI用法', link: '/starter/cli' }
-        ]
-      },
-      {
-        text: '开发',
-        items: [
-          { text: '插件开发', link: '/develop/plugins' },
-          { text: '插件进阶', link: '/develop/advanced' }
-        ]
-      },
-      {
-        text: '参考',
-        items: [
-          { text: '更新日志', link: '/reference/changelog' },
-          { text: '错误速查表', link: '/reference/errors' },
-        ]
-      },
-    ],
+    sidebar: {
+      '/': [
+        {
+          text: '入门',
+          items: [
+            { text: '快速开始', link: '/starter/quickstart' },
+            { text: 'CLI用法', link: '/starter/cli' }
+          ]
+        },
+        {
+          text: '开发',
+          items: [
+            { text: '插件开发', link: '/develop/plugins' },
+            { text: '插件进阶', link: '/develop/advanced' }
+          ]
+        },
+        {
+          text: '参考',
+          items: [
+            { text: '更新日志', link: '/reference/changelog' },
+            { text: '错误速查表', link: '/reference/errors' },
+          ]
+        }
+      ],
+      '/next/': []
+    },
 
     socialLinks: [
       { icon: 'npm', link: 'https://www.npmjs.com/package/cocotais-bot' }
@@ -63,7 +66,7 @@ export default defineConfig({
     darkModeSwitchTitle: '切换到深色主题',
     sidebarMenuLabel: '目录',
     returnToTopLabel: '回到顶部',
-    
+
     search: {
       provider: 'local',
       options: {
@@ -85,7 +88,7 @@ export default defineConfig({
       }
     }
   },
-  
+
   markdown: {
     container: {
       tipLabel: '提示',
