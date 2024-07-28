@@ -84,12 +84,61 @@ sidebar: false
 </div>
 
 <div v-if="account != '' && device != ''">
-    <hr>
-    <div v-if="account == 'yes' && device != 'android'">
-        <p>WIP</p>
-    </div>
+<hr>
+<div v-if="account == 'yes' && device != 'android' && (env.includes('node')||env.includes('node-legacy'))">
+
+<div v-if="env.includes('node-legacy') && !env.includes('node')">
+
+::: danger
+你的 Node.js 版本过低。Cocotais Bot 要求的最低 Node.js 版本为 20.0.0 或以上。
+
+请参考 [旧版 Node.js 升级指南](./legacy-node) 升级你的 Node.js 版本，随后继续阅读以下内容。
+
+如果你不进行 Node.js 升级，将会导致 Cocotais Bot 无法正常工作。
+:::
+
 </div>
-<p>WIP</p>
+
+<div v-if="env.includes('node-legacy') && env.includes('node')">
+
+::: warning
+你的 Node.js 版本中包含了旧版 Node.js。Cocotais Bot 要求的最低 Node.js 版本为 20.0.0 或以上。
+
+请确保在安装过程中使用较新的 Node.js，否则将会导致 Cocotais Bot 无法正常工作。
+
+推荐使用 [nvm](https://github.com/nvm-sh/nvm) 或 [nvm-windows](https://github.com/coreybutler/nvm-windows) 来管理多个 Node.js 版本。
+:::
+
+</div>
+
+::: tip 捷径
+恭喜你！你的设备环境符合 Cocotais Bot 的快速安装要求。
+
+Cocotais Bot 开发团队已为你提供了便捷的安装方式。你可以点击下方按钮，下载适合你的系统版本的 Cocotais Bot 安装脚本。
+
+<button class="t-button" v-if="device == 'windows'">下载 (.bat, 命令提示符)</button>
+
+<button class="t-button" v-if="device == 'windows'">下载 (.ps1, PowerShell)</button>
+
+<button class="t-button" v-if="device != 'windows'">下载 (.sh, Linux/macOS)</button>
+:::
+
+</div>
+
+点击下方按钮，开始部署你的 Cocotais Bot 实例！
+<div v-if="account == 'yes' && device != 'android' && (env.includes('node')||env.includes('node-legacy'))">
+
+::: warning
+你的设备环境符合 Cocotais Bot 的快速安装要求。你无需继续遵循 “快速开始向导”。
+
+如果你依旧希望自己手动安装 Cocotais Bot，请继续阅读以下内容。
+:::
+</div>
+
+<button class="t-button">立即开始</button>
+
+</div>
+
 </div>
 
 <style>
@@ -112,5 +161,17 @@ sidebar: false
     }
     .section-item-active {
         border: 1px solid #3E63DD;
+    }
+    .t-button {
+        padding: 4px 8px;
+        border-radius: 4px;
+        border-color: var(--vp-button-alt-border);
+        color: var(--vp-button-alt-text);
+        background-color: var(--vp-button-alt-bg);
+    }
+    .t-button:hover {
+        background-color: var(--vp-button-alt-hover-bg);
+        color: var(--vp-button-alt-hover-text);
+        border-color: var(--vp-button-alt-hover-border);
     }
 </style>
