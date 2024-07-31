@@ -10,6 +10,9 @@ sidebar: false
     const device = ref<string>("")
     const env = ref<string[]>([])
 
+    const dev_type = ref<string>("")
+    const dev_tool = ref<string>("")
+
     function env_class(name: string){
         return env.value.includes(name) ? 'section-item-active' : 'section-item'
     }
@@ -140,6 +143,47 @@ Cocotais Bot 开发团队已为你提供了便捷的安装方式。你可以点�
 </div>
 
 </div>
+
+<div v-if="usage == 'develop'">
+
+## 我要开发的是 ...
+
+<div class="section-group">
+    <div :class="dev_type == 'plugin' ? 'section-item-active' : 'section-item'" @click="dev_type = 'plugin'">
+        <div class="section-item-title">机器人插件</div>
+        <div class="section-item-content">为 Cocotais Bot 的插件生态做出贡献。</div>
+    </div>
+    <div :class="dev_type == 'framework' ? 'section-item-active' : 'section-item'" @click="dev_type = 'framework'">
+        <div class="section-item-title">机器人框架</div>
+        <div class="section-item-content">完善 Cocotais Bot 的各种功能。</div>
+    </div>
+</div>
+
+## 我的技术栈是 ...
+
+<div class="section-group">
+    <div :class="dev_tool == 'ts' ? 'section-item-active' : 'section-item'" @click="dev_tool = 'ts'">
+        <div class="section-item-title">TypeScript</div>
+        <div class="section-item-content" v-if="dev_type != 'framework'">推荐。可获得完整的语法补全和类型校验。</div>
+        <div class="section-item-content" v-else>必须。Cocotais Bot 是使用 TypeScript 进行编写与测试的。</div>
+    </div>
+    <div :class="dev_tool == 'js' ? 'section-item-active' : 'section-item'" @click="dev_tool = 'js'" v-if="dev_type != 'framework'">
+        <div class="section-item-title">JavaScript</div>
+        <div class="section-item-content">开箱即用，方便部署。</div>
+    </div>
+</div>
+
+<div v-if="dev_type != '' && dev_tool != ''">
+
+<hr>
+
+点击下方按钮，开始进行你的 Cocotais Bot 开发！
+<button class="t-button">立即开始</button>
+
+</div>
+
+</div>
+
 
 <style>
     .section-group {
