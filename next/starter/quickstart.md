@@ -95,7 +95,7 @@ sidebar: false
 ::: danger
 你的 Node.js 版本过低。Cocotais Bot 要求的最低 Node.js 版本为 20.0.0 或以上。
 
-请参考 [旧版 Node.js 升级指南](./legacy-node) 升级你的 Node.js 版本，随后继续阅读以下内容。
+请参考 [旧版 Node.js 升级指南](./legacy-node?return=/next/starter/quickstart) 升级你的 Node.js 版本，随后继续阅读以下内容。
 
 如果你不进行 Node.js 升级，将会导致 Cocotais Bot 无法正常工作。
 :::
