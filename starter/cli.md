@@ -105,8 +105,3 @@ pm2 log
 #### 2. 日志文件中包含 `intents 配置有误`
 
 请参照 [这里](https://bot.q.qq.com/wiki/develop/api-v2/dev-prepare/interface-framework/event-emit.html#%E4%BA%8B%E4%BB%B6%E8%AE%A2%E9%98%85intents) 对照填写 `config.json` 中的 intents。
-
-#### 3. 日志文件中包含 `Error: [object Object]`
-
-你的日志有误。你打开的是文件名以 `error.log` 结尾的日志文件。请打开文件名以 `out.log` 结尾的日志，并再次对照排查。
-如果你确认你打开的是文件名以 `out.log` 结尾的日志，请携带完整日志文件联系开发人员。
