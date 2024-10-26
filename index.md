@@ -26,8 +26,8 @@ features:
     details: 提供了详细的文档，丰富的代码补全。
 ---
 
-::: danger
-Cocotais Bot 文档 正在进行重构。重构期间，处于 WIP 状态的文档将不会更新。
+::: info
+Cocotais Bot 目前开发并不活跃，文档更新可能存在延迟。
 
 若想查看最新进度，请访问 [<Badge type='tip' text='Next' /> 版文档](/next/)。
 :::

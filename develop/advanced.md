@@ -180,7 +180,7 @@ export interface CocotaisBotPlugin {
 
 这样，当你在插件中监听事件时，会得到完整的类型提示与语法补全。
 
-在 `1.5.0` 版本中，我们引进了全新的事件系统。其实现相较于旧版的事件系统，更加易懂，但实现也相对较复杂。如果你感兴趣，可以参考 [深入源码(WIP)](./deep-in-source) 。
+在 `1.5.0` 版本中，我们引进了全新的事件系统。其实现相较于旧版的事件系统，更加易懂，但实现也相对较复杂。如果你感兴趣，可以参考 [源代码](https://github.com/cocotais/cocotais-bot/blob/master/src/event.ts) 。
 
 ## 5. 快捷方法 <Badge type="tip" text="New" />
 
@@ -233,7 +233,7 @@ at: () => string
 at_everyone: () => string
 ```
 
-对于这些快捷方法的实现，此处不再赘述。请阅读 [深入源码(WIP)](./deep-in-source) 。
+对于这些快捷方法的实现，此处不再赘述。请参见 [源代码](https://github.com/cocotais/cocotais-bot/blob/master/src/event.ts#L79) 。
 
 ## 6. 指令系统
 
@@ -304,4 +304,4 @@ plugin.onMounted((_) => {
 export default plugin;
 ```
 
-对于指令系统的实现，此处不再赘述。请阅读 [深入源码(WIP)](./deep-in-source) 。
+对于指令系统的实现，此处不再赘述。请参阅 [源代码](https://github.com/cocotais/cocotais-bot/blob/master/src/plugin.ts#L210) 。

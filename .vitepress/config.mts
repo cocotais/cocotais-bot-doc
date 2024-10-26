@@ -46,7 +46,8 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'npm', link: 'https://www.npmjs.com/package/cocotais-bot' }
+      { icon: 'npm', link: 'https://www.npmjs.com/package/cocotais-bot' },
+      { icon: 'github', link: 'https://github.com/cocotais/cocotais-bot' },
     ],
 
     footer: {
