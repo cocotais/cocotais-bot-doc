@@ -41,8 +41,7 @@ export default defineConfig({
             { text: '错误速查表', link: '/reference/errors' },
           ]
         }
-      ],
-      '/next/': []
+      ]
     },
 
     socialLinks: [
